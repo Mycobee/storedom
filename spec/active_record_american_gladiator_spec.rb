@@ -113,7 +113,7 @@ describe "ActiveRecord American Gladiator" do
       order_5 = Order.create(created_at: two_weeks_ago + 2.days)
 
       # Changeable Start
-      orders = Order.where("orders.created_at <= ? AND orders.created_at <= ?", 14.days.ago, 7.days.ago) 
+			orders = Order.where("orders.created_at < ? AND orders.created_at > ?", 13.days.ago, 22.days.ago)
       # Changeable End
 
       expect(orders).to eq([order_1, order_3, order_5])
